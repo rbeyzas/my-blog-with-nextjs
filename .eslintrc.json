@@ -1,3 +1,18 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:import/errors", "plugin:import/warnings"],
+  "rules": {
+    "import/named": "error", // İsimlendirilmiş importların doğru olduğunu kontrol eder
+    "import/default": "error", // Varsayılan importların doğru olduğunu kontrol eder
+    "import/namespace": "error", // Namespace importlarının doğru olduğunu kontrol eder
+    // "import/no-unused-modules": [1, { "unusedExports": true }], // Kullanılmayan modülleri ve exportları uyarı olarak belirler
+    "no-unused-vars": "warn", // Kullanılmayan değişkenleri uyarı olarak belirler
+    "no-undef": "error" // Tanımlanmamış değişkenleri hata olarak belirler
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 }
